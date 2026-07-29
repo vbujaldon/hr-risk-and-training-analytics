@@ -1,20 +1,18 @@
-<div align="center">
 
 # 📊 People Analytics
 
 
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)
-![pandas](https://img.shields.io/badge/pandas-Data%20Analysis-150458?logo=pandas&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-Data%20Analysis-150458?logo=pandas&logoColor=white)  
 ![statsmodels](https://img.shields.io/badge/statsmodels-Statistics-8CAAE6)
 ![scikit--learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikitlearn&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?logo=mysql&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?logo=mysql&logoColor=white)  
 ![PowerBI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)
 ![PowerPoint](https://img.shields.io/badge/PowerPoint-Business%20Report-B7472A?logo=microsoftpowerpoint&logoColor=white)
 
 **4 sprints semanales · de la extracción de datos a la recomendación de negocio**
 
-</div>
 
 > Este repositorio es una copia personal con fines de portfolio. El proyecto se desarrolló en equipo:
 - Vanessa Bujaldon Pellicer
@@ -81,7 +79,7 @@ Project/ProjecteData/Equip_33/
 
 ---
 
-## 🩺 Sprints 1-3 · Análisis de absentismo y desempeño (Empresa RapidExpress - departamento de RRHH)
+## Sprints 1-3 · Análisis de absentismo y desempeño (Empresa RapidExpress - departamento de RRHH)
 
 **Fuente de datos:** dataset de RR.HH. de una empresa logística ficticia (basada en el dataset público *"Absenteeism at Work"*, UCI), cargado en MySQL y consultado vía SQLAlchemy.
 
@@ -158,7 +156,10 @@ flowchart LR
 ## Autoría
 
 Proyecto desarrollado en equipo de 4 personas:
-Vanessa Bujaldon Pellicer · Nizar el Ourama Sorribas · Raúl Martínez Aparicio · Hamza Messaoudi
+· Vanessa Bujaldon Pellicer 
+· Nizar el Ourama Sorribas 
+· Raúl Martínez Aparicio 
+· Hamza Messaoudi
 
 Esta copia se conserva con fines de portfolio personal.
 
