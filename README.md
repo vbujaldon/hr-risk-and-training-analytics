@@ -1,38 +1,37 @@
-
-# 📊 People Analytics
-
+# 📊 HR Risk & Training Analytics
+### Statistical analysis for business decisions — from SQL audit to recommendations
 
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?logo=python&logoColor=white)
-![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)
-![pandas](https://img.shields.io/badge/pandas-Data%20Analysis-150458?logo=pandas&logoColor=white)  
+![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?logo=mysql&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-Data%20Analysis-150458?logo=pandas&logoColor=white)
 ![statsmodels](https://img.shields.io/badge/statsmodels-Statistics-8CAAE6)
-![scikit--learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikitlearn&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?logo=mysql&logoColor=white)  
 ![PowerBI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)
-![PowerPoint](https://img.shields.io/badge/PowerPoint-Business%20Report-B7472A?logo=microsoftpowerpoint&logoColor=white)
 
-**4 sprints semanales · de la extracción de datos a la recomendación de negocio**
+**4 weekly sprints · team of 4 analysts · fictional logistics company (RapidExpress, 500+ employees)**
 
-
-> Este repositorio es una copia personal con fines de portfolio. El proyecto se desarrolló en equipo:
-- Vanessa Bujaldon Pellicer
-- Nizar el Ourama Sorribas
-- Raúl Martínez Aparicio
-- Hamza Messaoudi
+> Personal portfolio copy of a team project developed at IT Academy (Barcelona Activa).
+> Team: Vanessa Bujaldon Pellicer · Nizar el Ourama Sorribas · Raúl Martínez Aparicio · Hamza Messaoudi
 
 ---
 
-## De un vistazo
+## 👩‍💻 My contribution
 
-| Horas de absentismo analizadas | Empleados | Riesgo absentismo si tiene antecedentes disciplinarios | Barrera nº1 a la formación |
+- **Training-barriers analysis (Sprint 4, owner):** extraction of semi-structured public Excel tables, 2024 ranking, 2022→2023→2024 evolution with **proportion Z-tests using the official survey sample sizes**, trend classification and benchmark of large companies vs. the services sector — [`Analisis_EAL_Barreras_2026-07-20.ipynb`](Scripts/Analisis_EAL_Barreras_2026-07-20.ipynb)
+- **[CONFIRMA: what you did in Sprints 1–3 — e.g. SQL data audit, statistical tests, logistic regression, notebook integration, repository quality role]**
+
+---
+
+## At a glance
+
+| Absenteeism hours analysed | Employees | Absenteeism risk with disciplinary record | #1 barrier to training |
 |:---:|:---:|:---:|:---:|
-| **5.043 h** | **136** | **× 5,5** | **55 % carga de trabajo** |
+| **5,043 h** | **136** | **× 5.5** | **55% workload / lack of time** |
 
 ```mermaid
 flowchart LR
-    S1["Sprint 1 · 29 jun<br/>Magnitud del<br/>absentismo"] --> S2["Sprint 2 · 6 jul<br/>¿Quién tiene<br/>riesgo elevado?"]
-    S2 --> S3["Sprint 3 · 13 jul<br/>Perfiles de riesgo<br/>+ KPIs desempeño"]
-    S3 --> S4["Sprint 4 · 27 jul<br/>Tendencias<br/>formativas del sector"]
+    S1["Sprint 1 · 29 Jun<br/>How big is<br/>absenteeism?"] --> S2["Sprint 2 · 6 Jul<br/>Who is at<br/>high risk?"]
+    S2 --> S3["Sprint 3 · 13 Jul<br/>Risk profiles<br/>+ performance KPIs"]
+    S3 --> S4["Sprint 4 · 27 Jul<br/>Sector training<br/>trends"]
 
     style S1 fill:#2E5F8A,color:#fff,stroke:#fff
     style S2 fill:#2E75B6,color:#fff,stroke:#fff
@@ -40,127 +39,62 @@ flowchart LR
     style S4 fill:#B8860B,color:#fff,stroke:#fff
 ```
 
-El proyecto pasa de **describir** el absentismo (S1), a **predecir** quién tiene riesgo (S2), a **prevenir** con acciones de coste estimado (S3), hasta **abrir el foco** a políticas de formación con datos sectoriales externos (S4).
+The project moves from **describing** absenteeism (S1) to **predicting** who is at risk (S2), **preventing** it with costed actions (S3), and finally **widening the focus** to training policy using external sector data (S4).
+
+<!-- Add 1–2 screenshots here, e.g. a Power BI page and a key chart:
+![Power BI KPI dashboard](Results/img/powerbi_kpis.png) -->
 
 ---
 
-## 🗂️ Estructura del repositorio
+## Sprints 1–3 · Absenteeism and performance
 
-<details>
-<summary><b>Ver árbol de carpetas completo</b> (clic para desplegar)</summary>
+**Data:** HR dataset of a fictional logistics company (based on the public UCI *"Absenteeism at Work"* dataset), loaded in MySQL and queried with SQLAlchemy.
+
+**Sprint 1 — How big is absenteeism?**
+- **5,043 total hours** · **152.8 h per employee**; three employees account for more than 25% of the total
+- Monthly peak in **March** (755 h); most frequent reason: **medical appointments** (142 absences)
+
+**Sprint 2 — Who is at high risk?**
+- Binary logistic regression on high absenteeism (136 employees)
+- **Key finding:** no relationship with personal attributes — the only real link is with **workload management**
+
+**Sprint 3 — Risk profiles and performance KPIs**
+- Ordinal logistic regression (4 levels): a disciplinary record **multiplies by 5.5** the odds of high absenteeism; the "Severe" level concentrates **67% of lost working days**
+- Composite performance score (8 KPIs): **workload** is the only robust, negative predictor, consistent across all 8 KPIs (Spearman −0.10 to −0.13)
+
+## Sprint 4 · Sector training trends
+
+**Business question:** how should the company adjust its training policy to match sector trends in key skills, training methods and common barriers?
+
+**Data:** Spanish Annual Labour Survey (EAL), Ministry of Labour and Social Economy, 2022–2024.
+
+| Block | Main finding |
+|---|---|
+| Skills | Job-specific technical skills (45%), customer service (31.5%) and teamwork (30.1%) lead the 2024 training offer |
+| Methods | External courses (79.7%) and on-the-job training (52%) dominate over conferences or job rotation |
+| **Barriers** | **Workload / lack of time (55%)** and **"staff already well trained" (53%)** are the only barriers above 50%. Z-tests per period show that **only 6 of 16 year-on-year changes are statistically reliable** |
+
+---
+
+## 🛠️ Tech stack
+
+- **Python:** pandas, numpy, matplotlib, plotly, statsmodels (`proportions_ztest`, logistic / ordinal regression), scikit-learn
+- **Database:** MySQL via SQLAlchemy
+- **Excel / openpyxl:** extraction of semi-structured public tables
+- **Business deliverables:** Power BI dashboards + PowerPoint business reports
+- **Version control:** Git / GitHub (team branch workflow)
+
+## 🗂️ Repository structure
 
 ```
-Project/ProjecteData/Equip_33/
-│
-├── Scripts/                                   Notebooks (Jupyter)
-│   ├── Data_cleaning_RRHH_2026-06-29/07-06/07-13.ipynb
-│   ├── EDA_2026-06-29/07-06/07-13.ipynb
-│   ├── AbsenteeismAnalysis_2026-06-29/07-06/07-13.ipynb
-│   ├── PerformanceAnalysis_2026-06-29/07-06/07-13.ipynb
-│   ├── Data_cleaning_EAL_Competencies_2026-07-20.ipynb
-│   ├── EDA_EAL_Competencies_2026-07-20.ipynb
-│   ├── Analisis_EAL_Competencias_2026-07-20.ipynb
-│   ├── Analisis_EAL_Medios_2026-07-20.ipynb
-│   └── Analisis_EAL_Barreras_2026-07-20.ipynb
-├── Data/                                        Datos crudos y limpios
-│   ├── Encuesta_EAL/                            Fuente pública (Ministerio de Trabajo)
-│   ├── Data_Understanding_2026-06-29/07-06.pdf
-│   ├── DatasetOriginal_2026-06-29/07-06/07-13.csv
-│   └── DatasetClean_2026-06-29/07-06/07-13.csv
-│
-├── Results/                                     Entregables de negocio
-│   ├── BusinessReport-_2026-06-29/07-06/07-13/07-27.pptx
-│   └── KPIs2026-06-29/07-06/07-13.pbix           Dashboards Power BI
-│
+├── Scripts/    Jupyter notebooks — each sprint follows Data_cleaning → EDA → Analysis
+├── Data/       Raw and clean datasets + EAL public survey (raw and processed)
+├── Results/    Business reports (.pptx / .pdf) and Power BI dashboards (.pbix)
 └── README.md
 ```
 
-</details>
+## 🧭 How to navigate
 
----
-
-## Sprints 1-3 · Análisis de absentismo y desempeño (Empresa RapidExpress - departamento de RRHH)
-
-**Fuente de datos:** dataset de RR.HH. de una empresa logística ficticia (basada en el dataset público *"Absenteeism at Work"*, UCI), cargado en MySQL y consultado vía SQLAlchemy.
-
-### Sprint 1 (29/06) — Magnitud del absentismo
-- **5.043 horas totales** de absentismo · **152,8 h de media por empleado**, con tres empleados concentrando más del 25% del total
-- Pico mensual en **marzo** (755 h); motivo más frecuente: **consultas médicas** (142 ausencias)
-
-### Sprint 2 (06/07) — ¿Quién tiene riesgo de absentismo elevado?
-- Regresión logística binaria sobre `Absentismo_Alto` (136 empleados)
-- **Hallazgo clave:** sin correlación con atributos personales — la única relación real es con la **gestión de la carga de trabajo**
-
-### Sprint 3 (13/07) — Perfiles de riesgo y KPIs de desempeño
-- Regresión logística ordinal (4 niveles): los antecedentes disciplinarios **multiplican por 5,5** la probabilidad de absentismo elevado; el nivel "Severo" concentra el **67% de las jornadas perdidas**
-- KPI de desempeño compuesto (8 indicadores): la **carga de trabajo** es el único predictor robusto y negativo, consistente en los 8 KPIs (Spearman −0,10 a −0,13)
-
-### 📚 Sprint 4 · Tendencias formativas del sector
-
-**Pregunta de negocio:** ¿Cómo ajustar las políticas de formación para alinearlas con las tendencias del sector — competencias clave, medios utilizados y barreras más comunes — y aumentar el impacto del desarrollo profesional?
-
-**Fuente de datos:** Encuesta Anual Laboral (EAL), Ministerio de Trabajo y Economía Social, 2022-2024.
-
-```mermaid
-flowchart TB
-    Q["Tendencias formativas del sector"] --> C["Competencias<br/>qué se forma"]
-    Q --> M["Medios<br/>cómo se forma"]
-    Q --> B["Barreras<br/>por qué no más"]
-    C --> P["Propuestas por perfil<br/>Administrativo · Atención cliente · Operaciones"]
-    M --> P
-    B --> P
-
-    style Q fill:#26303A,color:#fff
-    style B fill:#B33F3F,color:#fff
-    style P fill:#2E7D46,color:#fff
-```
-
-| Bloque | Hallazgo principal |
-|---|---|
-| Competencias | Técnicas del puesto (45%), atención al cliente (31,5%) y trabajo en equipo (30,1%) lideran la oferta formativa 2024 |
-| Medios | Cursos externos (79,7%) y formación en el puesto (52%) dominan sobre conferencias/rotación |
-| **Barreras** | **Carga de trabajo/falta de tiempo (55%)** y **percepción de nivel ya adecuado (53%)** — únicas barreras >50%. Test Z por tramos (2022→23, 2023→24): **6 de 16 cambios año a año son fiables**; solo la falta de oferta formativa muestra tendencia creciente sostenida |
-
----
-
-## 🛠️ Stack técnico
-
-```mermaid
-flowchart LR
-    subgraph Fuentes
-        A1[(MySQL<br/>RRHH)]
-        A2[(EAL<br/>Excel público)]
-    end
-    A1 --> B[Limpieza<br/>pandas]
-    A2 --> B
-    B --> C[EDA<br/>matplotlib · plotly]
-    C --> D[Modelado<br/>statsmodels · scikit-learn]
-    D --> E[Business Report<br/>+ Power BI]
-```
-
-- **Python:** pandas, numpy, matplotlib, plotly, statsmodels (`proportions_ztest`, regresión logística/ordinal/Beta), scikit-learn
-- **Base de datos:** MySQL vía SQLAlchemy
-- **Excel/openpyxl:** extracción de tablas públicas semiestructuradas (EAL)
-- **Visualización de negocio:** Power BI (`.pbix`) + PowerPoint
-- **Control de versiones:** Git/GitHub, rama de equipo `Equip_33`
-
-## 🧭 Cómo navegar el repositorio
-
-- **Vista de negocio →** abre directamente los `.pptx` de `Results/`, en orden cronológico.
-- **Vista de código →** cada sprint sigue el patrón `Data_cleaning → EDA → Analysis`; la primera celda markdown de cada notebook resume pregunta de negocio y metodología de esa semana.
-
----
-
-<div align="center">
-
-## Autoría
-
-Proyecto desarrollado en equipo de 4 personas:
-· Vanessa Bujaldon Pellicer 
-· Nizar el Ourama Sorribas 
-· Raúl Martínez Aparicio 
-· Hamza Messaoudi
-
-Esta copia se conserva con fines de portfolio personal.
-
-</div>
+- **Business view →** read the business reports (PDF, in Spanish) in chronological order:
+  [Sprint 1](Results/BusinessReport-2026-06-29.pdf) · [Sprint 2](Results/BusinessReport-2026-07-06.pdf) · [Sprint 3](Results/BusinessReport-2026-07-13.pdf) · [Sprint 4](Results/BusinessReport-2026-07-27.pdf)
+- **Code view →** the first markdown cell of each notebook summarises that week's business question and method.
